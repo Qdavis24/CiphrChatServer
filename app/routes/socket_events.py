@@ -91,8 +91,6 @@ def on_send_message(data: dict):
     to_username = data.get("to_username")
     content = data.get("content")
 
-    print(content)
-
     from_username = get_username_from_sid(sid)
     target_sid = get_sid_from_username(to_username) if to_username else None
 
