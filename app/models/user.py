@@ -8,7 +8,7 @@ from app.extensions import db
 
 class User(db.Model):
     __tablename__ = "user"
-    username: Mapped[str] = mapped_column(String(60), unique=True, nullable=False)
+    username: Mapped[str] = mapped_column(String(60), primary_key=True)
     password_hash: Mapped[str] = mapped_column(Text, nullable=False)
     created_at: Mapped[datetime] = mapped_column(
         default=lambda: datetime.now(timezone.utc),
