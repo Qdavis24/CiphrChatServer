@@ -22,7 +22,10 @@ def decode_token(token: str) -> str | None:
 
 
 def get_username_from_sid(sid: str) -> str | None:
-    return next((u for u, s in connected_users.items() if s == sid), None)
+    for u, s in connected_users.items():
+        if sid == s:
+            return u
+    return None
 
 
 def get_sid_from_username(username: str) -> str | None:

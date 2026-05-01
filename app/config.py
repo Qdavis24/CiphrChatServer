@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-change-in-production")
+    SECRET_KEY = os.environ.get("SECRET_KEY", None)
     DEBUG = False
     TESTING = False
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -14,7 +14,7 @@ class DevelopmentConfig(Config):
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "sqlite:///prod.db")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", None)
 
 
 config_map = {
