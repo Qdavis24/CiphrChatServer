@@ -15,7 +15,7 @@ def register():
     password = data.get("password", "")
 
     if not username or not password:
-        return jsonify({"message": "username, password, and public_key are required"}), 400
+        return jsonify({"message": "username and password are required"}), 400
 
     try:
         user = User(
